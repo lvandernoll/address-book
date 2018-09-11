@@ -5,10 +5,11 @@
 }
 
 body {
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 @import 'vars';
+@import 'partials/contacts';
 @import 'partials/person';
 @import 'partials/detail';
 

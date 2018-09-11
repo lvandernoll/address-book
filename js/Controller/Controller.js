@@ -3,7 +3,7 @@ class Controller {
 	constructor() {
 		this.view = new View();
 
-		let peopleAmount = 2;
+		let peopleAmount = 20;
 		this.peopleArray = [];
 		
 		this.loadPeople(peopleAmount);
