@@ -13,6 +13,12 @@
 
 .detail {
 
+	&__return-button {
+		position: absolute;
+		margin-left: 10px;
+		color: white;
+	}
+	
 	&__image {
 		width: 100%;
 		height: 35%;
@@ -21,6 +27,7 @@
 	}
 	
 	&__header {
+		text-transform: capitalize;
 		height: 10%;
 		display: flex;
 		flex-direction: column;
