@@ -7,7 +7,7 @@ class Controller {
 		
 		this.loadPeople(peopleAmount);
 
-		// setInterval(this.view.switchDetailPage, 2000);
+		this.view.switchDetailPage();
 	}
 	
 	loadPeople(peopleAmount) {

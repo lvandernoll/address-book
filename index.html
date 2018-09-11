@@ -10,7 +10,7 @@
 	<div id="contactsPage" class="contacts-page">
 		<section id="peopleList" class="people-list">
 			<div id="personTemplate" class="person-block hidden">
-				<img class="person__image" src="img/defaultPerson.png" alt="person">
+				<img class="person__image" src="img/defaultPerson.png" alt="person"/>
 				<div class="person__info-block">
 					<h2 class="person__name">Firstname Lastname</h2>
 					<p class="person__phone-number">+31 6 123 456</p>
@@ -19,6 +19,31 @@
 		</section>
 	</div>
 	<div id="detailPage" class="detail-page">
+		<div id="detailImage" class="detail__image" data-image="img/defaultPerson.png"></div>
+		<section class="detail__header">
+			<h2 class="detail__name">Laura Jannett</h2>
+			<p class="detail__function">Designer at insidemilk</p>
+		</section>
+		<section class="detail__phone-block">
+			<div class="detail-mobile-phone__block">
+				<p id="detailMobilePhone" class="detail-mobile-phone__header">+31 6 123 456</p>
+				<label class="detail-mobile-phone__label">Mobile</label>
+			</div>
+			<div class="detail-work-phone__block">
+				<p id="detailWorkPhone" class="detail-work-phone__header">+31 6 123 456</p>
+				<label class="detail-work-phone__label">Business</label>
+			</div>
+		</section>
+		<section class="detail__mail-block">
+			<div class="detail-work-mail__block">
+				<p id="detailWorkMail" class="detail-work-mail__header">email@email.com</p>
+				<label class="detail-work-mail__label">Work</label>
+			</div>
+			<div class="detail-personal-mail__block">
+				<p id="detailPersonalMail" class="detail-personal-mail__header">email@email.com</p>
+				<label class="detail-personal-mail__label">Personal</label>
+			</div>
+		</section>
 	</div>
 	<script src="dist/app-concat-min.js"></script>
 </body>

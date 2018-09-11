@@ -1,11 +1,75 @@
 .detail-page {
 	height: 100%;
 	width: 100%;
-	background-color: red;
-	opacity: .5;
+	background-color: $detailBackground;
 	z-index: 2;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 150%;
 	transition: all 1s ease;
+	box-shadow: 10px 10px 100px rgba(darken($detailBackground, 20), .5);
+	font-size: 3rem;
+}
+
+.detail {
+
+	&__image {
+		width: 100%;
+		height: 35%;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	&__header {
+		height: 10%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 2.5% 7%;
+		background-color: darken($detailBackground, 5);
+	}
+	
+	&__name {
+		font-size: 3.8rem;
+		margin-bottom: 15px;
+	}
+
+	&__function {
+		font-size: 2.5rem;
+		color: darken($detailBackground, 35);
+	}
+
+	&__phone-block, &__mail-block {
+		height: 25%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		padding: 2% 7% 0 7%;
+	}
+
+	&__mail-block {
+		justify-content: space-between;
+		height: 15%;
+	}
+
+	&-mobile-phone, &-work-phone, &-personal-mail, &-work-mail {
+		&__block {
+			padding: 0 7%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&__label {
+			font-size: 2.2rem;
+			margin-top: 10px;
+			color: darken($detailBackground, 45);
+		}
+	}
+
+	&-work-phone__block {
+		border-bottom: 5px solid darken($detailBackground, 10);
+		justify-self: flex-end;
+		padding-bottom: 9%;
+	}
 }
