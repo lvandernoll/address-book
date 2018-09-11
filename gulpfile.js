@@ -42,4 +42,4 @@ gulp.task('browser-sync', function() {
 	gulp.watch("index.html").on('change', browserSync.reload);
 });
 
-gulp.task('default', ['sass', 'browser-sync']);
+gulp.task('default', ['sass', 'concat-js', 'browser-sync']);

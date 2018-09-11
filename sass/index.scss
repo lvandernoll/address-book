@@ -4,8 +4,13 @@
 	font-family: 'Ubuntu';
 }
 
+body {
+	overflow-x: hidden;
+}
+
 @import 'vars';
 @import 'partials/person';
+@import 'partials/detail';
 
 .hidden {
 	display: none;
