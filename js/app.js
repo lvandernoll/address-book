@@ -1,3 +1,3 @@
 window.onload = () => {
-	// Code
+	const CONTROLLER = new Controller();
 }

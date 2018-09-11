@@ -1,5 +1,12 @@
 * {
 	margin: 0;
 	padding: 0;
-	background-color: red;
+	font-family: 'Ubuntu';
+}
+
+@import 'vars';
+@import 'partials/person';
+
+.hidden {
+	display: none;
 }

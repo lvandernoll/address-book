@@ -1,0 +1,41 @@
+.people-list {
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
+}
+
+.person {
+
+	&-block {
+		display: flex;
+		align-items: center;
+		height: 100px;
+		width: 500px;
+		padding: 10px 10px;
+		border-top: 1px solid $peopleSeperateLine;
+		border-bottom: 1px solid $peopleSeperateLine;
+	}
+
+	&__image {
+		height: 100%;
+		border-radius: 5px;
+	}
+
+	&__info-block {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		padding-left: 15px;
+	}
+
+	&__name {
+		font-size: 1.2rem;
+		margin-bottom: 3px;
+		text-transform: capitalize;
+	}
+
+	&__phone-number {
+		color: $phoneNumber;
+	}
+}
