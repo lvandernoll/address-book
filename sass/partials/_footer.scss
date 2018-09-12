@@ -13,6 +13,22 @@
 	padding: 0 10%;
 }
 
-.footer__image {
-	height: 40%;
+.footer {
+
+	&__link {
+		outline: none;
+		border-radius: 50%;
+		height: 40%;
+		padding: 2%;
+
+		&:target {
+			.footer__image {
+				filter: drop-shadow(0 0 10px darken($mainColor, 70));
+			}
+		}
+	}
+	
+	&__image {
+		height: 100%;
+	}
 }

@@ -115,4 +115,8 @@
 	&-mobile-phone__chat-icon, &-work-phone__chat-icon, &-mail__icon {
 		height: 50px;
 	}
+
+	&-mobile-phone__chat-icon, &-work-phone__chat-icon {
+		filter: drop-shadow(0 0 10px darken($mainColor, 70));
+	}
 }

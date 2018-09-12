@@ -1,7 +1,9 @@
 class View {
 
 	constructor() {
-		// View
+		// Set current page href to #address-book when loading page
+		window.location = document.querySelector('#address-book').href;
+
 		this.detailPage = document.querySelector('#detailPage');
 		this.contactsPage = document.querySelector('#contactsPage');
 		this.peopleList = document.querySelector('#peopleList');
@@ -29,13 +31,12 @@ class View {
 		this.detailPage.querySelector('#detailWorkPhone').innerText = person.phone;
 		this.detailPage.querySelector('#detailWorkMail').innerText = person.email;
 		this.detailPage.querySelector('#detailPersonalMail').innerText = person.email;
-
 	}
 
 	switchDetailPage() {
 		if(this.detailActive) {
 			this.detailPage.style.left = '-150%';
-			this.contactsPage.style.height = '100vh';
+			this.contactsPage.style.height = '91vh';
 		} else {
 			this.detailPage.style.left = '0';
 			setTimeout(()=>{this.contactsPage.style.height = '0';}, 1000);
