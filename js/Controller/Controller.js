@@ -4,9 +4,11 @@ class Controller {
 		this.view = new View();
 
 		let peopleAmount = 20;
+		let pageTransitionTime = '1s';
 		this.peopleArray = [];
 		
 		this.loadPeople(peopleAmount);
+		this.view.setPageTransition(pageTransitionTime);
 	}
 	
 	loadPeople(peopleAmount) {

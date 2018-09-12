@@ -1,0 +1,18 @@
+.page_footer {
+	z-index: 3;
+	width: 80%;
+	height: 9%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	box-shadow: 0 0 30px darken($defaultBackground, 30);
+	background-color: lighten($defaultBackground, 10);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10%;
+}
+
+.footer__image {
+	height: 40%;
+}

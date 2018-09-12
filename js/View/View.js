@@ -3,6 +3,7 @@ class View {
 	constructor() {
 		// View
 		this.detailPage = document.querySelector('#detailPage');
+		this.contactsPage = document.querySelector('#contactsPage');
 		this.peopleList = document.querySelector('#peopleList');
 		this.detailActive = false;
 
@@ -32,8 +33,17 @@ class View {
 	}
 
 	switchDetailPage() {
-		if(this.detailActive) this.detailPage.style.left = '150%';
-		else this.detailPage.style.left = '0';
+		if(this.detailActive) {
+			this.detailPage.style.left = '-150%';
+			this.contactsPage.style.height = '100vh';
+		} else {
+			this.detailPage.style.left = '0';
+			setTimeout(()=>{this.contactsPage.style.height = '0';}, 1000);
+		}
 		this.detailActive = !this.detailActive;
+	}
+
+	setPageTransition(time) {
+		this.detailPage.style.transition = `left ${time} ease`
 	}
 }
