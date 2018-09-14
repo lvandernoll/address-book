@@ -13,6 +13,37 @@
 
 .detail {
 
+	&__button-header {
+		position: absolute;
+		top: 0;
+		right: 50px;
+		width: 16%;
+		height: 46%;
+		border-radius: 0 0 10px 10px;
+		display: grid;
+		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-row-gap: 2px;
+		background-image: linear-gradient(lighten($mainColor, 5), darken($mainColor, 5));
+	}
+
+	&-button-header__image-box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+		&--border-bottom {
+			border-bottom: 2px solid lighten($mainColor, 10);
+		}
+	}
+
+	&-button-header__image {
+		width: 35%;
+
+		&--small {
+			width: 30%;
+		}
+	}
+
 	&__return-button {
 		position: absolute;
 		margin-left: 7.5%;
@@ -117,6 +148,6 @@
 	}
 
 	&-mobile-phone__chat-icon, &-work-phone__chat-icon {
-		filter: drop-shadow(0 0 10px darken($mainColor, 70));
+		fill: $mainColor;
 	}
 }
