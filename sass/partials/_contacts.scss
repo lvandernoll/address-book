@@ -1,13 +1,20 @@
 .contacts-page {
 	overflow-y: scroll;
 	height: 91vh;
+	width: 93%;
 	background-color: $defaultBackground;
+}
+
+.main-page__wrapper {
+	display: flex;
+	width: 100%;
+	padding-top: 20px;
 }
 
 .people-list {
 	display: flex;
 	flex-direction: column;
-	padding: 40px 50px 0 0;
+	padding-left: 5px;
 	z-index: 1;
 }
 
@@ -29,5 +36,28 @@
 		color: $mainColor;
 		width: 7%;
 		text-transform: capitalize;
+	}
+}
+
+.letter-list {
+	display: flex;
+	flex-direction: column;
+	height: 91vh;
+	width: 7%;
+	padding-top: 3%;
+	background-color: $defaultBackground;
+	align-items: center;
+	font-size: 2rem;
+	font-weight: bold;
+
+	&__letter {
+		margin-bottom: 23%;
+		color: $mainColor;
+		text-transform: capitalize;
+		text-decoration: none;
+
+		&--faded {
+			color: darken($mainColor, 50);
+		}
 	}
 }

@@ -19,6 +19,7 @@ class Controller {
 				return (a.name.first > b.name.first) ? 1 : ((b.name.first > a.name.first) ? -1 : 0);
 			});
 			this.view.showPeopleList(this.peopleArray);
+			this.view.setLetterList();
 			this.view.fillDetailPage(this.peopleArray[0]);
 		})
 		.catch(error => console.error(error));

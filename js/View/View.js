@@ -8,20 +8,22 @@ class View {
 		this.contactsPage = document.querySelector('#contactsPage');
 		this.peopleList = document.querySelector('#peopleList');
 		this.lineTemplate = document.querySelector('#lineTemplate');
+		this.letterList = document.querySelectorAll('.letter-list__letter');
 		this.detailActive = false;
+		this.allFirstLetters = [];
 
 		document.querySelector('#returnButton').addEventListener('click', e => {this.switchDetailPage();});
 	}
 
 	showPeopleList(peopleArray) {
-		// let allFirstLetters = [];
+		this.allFirstLetters = [];
 		let previousLetter = '';
 		peopleArray.forEach(person => {
-			// let newLetter = true;
-			// allFirstLetters.forEach(letter => {
-			// 	if(person.name.first[0] === letter) newLetter = false;
-			// });
-			// if(newLetter) allFirstLetters.push(person.name.first[0]);
+			let newLetter = true;
+			this.allFirstLetters.forEach(letter => {
+				if(person.name.first[0] === letter) newLetter = false;
+			});
+			if(newLetter) this.allFirstLetters.push(person.name.first[0]);
 
 			let newPersonNode = new Person(person.picture.large, `${person.name.first} ${person.name.last}`, person.phone);
 			if(person.name.first[0] !== previousLetter) {
@@ -29,6 +31,7 @@ class View {
 				const CLONE = this.lineTemplate.cloneNode(true);
 				CLONE.classList.remove('hidden');
 				CLONE.querySelector('.person-line__letter').innerText = person.name.first[0];
+				CLONE.querySelector('.person-line__letter').setAttribute('id', person.name.first[0]);
 				this.peopleList.appendChild(CLONE);
 				previousLetter = person.name.first[0];
 			}
@@ -38,7 +41,20 @@ class View {
 			});
 			this.peopleList.appendChild(newPersonNode);
 		});
-		console.log(allFirstLetters);
+	}
+
+	setLetterList() {
+		this.letterList.forEach(letterNode => {
+			let isActive = false;
+			this.allFirstLetters.forEach(letter => {
+				if(letterNode.innerHTML === letter) isActive = true;
+			});
+			if(isActive) {
+				letterNode.setAttribute('href', `#${letterNode.innerHTML}`);
+			} else {
+				letterNode.classList.add('letter-list__letter--faded');
+			}
+		})
 	}
 
 	fillDetailPage(person) {
