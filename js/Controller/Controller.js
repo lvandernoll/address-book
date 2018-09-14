@@ -15,7 +15,9 @@ class Controller {
 		fetch(`https://randomuser.me/api/?nat=nl&inc=picture,name,phone,cell,email&results=${peopleAmount}`)
 		.then(response => response.json())
 		.then(responseJSON => {
-			this.peopleArray = responseJSON.results
+			this.peopleArray = responseJSON.results.sort((a, b) => {
+				return (a.name.first > b.name.first) ? 1 : ((b.name.first > a.name.first) ? -1 : 0);
+			});
 			this.view.showPeopleList(this.peopleArray);
 			this.view.fillDetailPage(this.peopleArray[0]);
 		})

@@ -1,20 +1,17 @@
-.people-list {
-	display: flex;
-	flex-direction: column;
-	padding: 0 50px;
-	z-index: 1;
-}
-
 .person {
 
 	&-block {
 		display: flex;
 		align-items: center;
 		height: 175px;
-		width: 100%;
+		width: 90%;
 		padding: 20px 20px;
-		border-top: 1px solid darken($defaultBackground, 10);
-		border-bottom: 1px solid darken($defaultBackground, 10);
+		margin-left: 50px;
+		border-top: 2px solid darken($defaultBackground, 10);
+
+		&--no-border {
+			border: none;
+		}
 	}
 
 	&__image {

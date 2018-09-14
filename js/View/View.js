@@ -7,20 +7,38 @@ class View {
 		this.detailPage = document.querySelector('#detailPage');
 		this.contactsPage = document.querySelector('#contactsPage');
 		this.peopleList = document.querySelector('#peopleList');
+		this.lineTemplate = document.querySelector('#lineTemplate');
 		this.detailActive = false;
 
 		document.querySelector('#returnButton').addEventListener('click', e => {this.switchDetailPage();});
 	}
 
 	showPeopleList(peopleArray) {
+		// let allFirstLetters = [];
+		let previousLetter = '';
 		peopleArray.forEach(person => {
+			// let newLetter = true;
+			// allFirstLetters.forEach(letter => {
+			// 	if(person.name.first[0] === letter) newLetter = false;
+			// });
+			// if(newLetter) allFirstLetters.push(person.name.first[0]);
+
 			let newPersonNode = new Person(person.picture.large, `${person.name.first} ${person.name.last}`, person.phone);
+			if(person.name.first[0] !== previousLetter) {
+				newPersonNode.classList.toggle('person-block--no-border');
+				const CLONE = this.lineTemplate.cloneNode(true);
+				CLONE.classList.remove('hidden');
+				CLONE.querySelector('.person-line__letter').innerText = person.name.first[0];
+				this.peopleList.appendChild(CLONE);
+				previousLetter = person.name.first[0];
+			}
 			newPersonNode.addEventListener('click', () => {
 				this.fillDetailPage(person);
 				this.switchDetailPage();
 			});
 			this.peopleList.appendChild(newPersonNode);
 		});
+		console.log(allFirstLetters);
 	}
 
 	fillDetailPage(person) {
