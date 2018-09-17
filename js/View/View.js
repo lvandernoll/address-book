@@ -1,14 +1,12 @@
 class View {
 
 	constructor() {
-		// Set current page href to #address-book when loading page
-		window.location = document.querySelector('#address-book').href;
-
 		this.detailPage = document.querySelector('#detailPage');
 		this.contactsPage = document.querySelector('#contactsPage');
 		this.peopleList = document.querySelector('#peopleList');
 		this.lineTemplate = document.querySelector('#lineTemplate');
 		this.letterList = document.querySelectorAll('.letter-list__letter');
+		this.footerIcons = document.querySelectorAll('.footer__image');
 		this.detailActive = false;
 		this.allFirstLetters = [];
 
@@ -80,5 +78,16 @@ class View {
 
 	setPageTransition(time) {
 		this.detailPage.style.transition = `left ${time} ease`
+	}
+
+	setFooterIcons() {
+		this.footerIcons.forEach(footerIcon => {
+			footerIcon.addEventListener('click', e => {
+				this.footerIcons.forEach(icon => {
+					icon.classList.remove('footer__image--selected');
+				});
+				e.target.classList.add('footer__image--selected');
+			});
+		});
 	}
 }

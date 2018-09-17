@@ -9,6 +9,7 @@ class Controller {
 		
 		this.loadPeople(peopleAmount);
 		this.view.setPageTransition(pageTransitionTime);
+		this.view.setFooterIcons();
 	}
 	
 	loadPeople(peopleAmount) {

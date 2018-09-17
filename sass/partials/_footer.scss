@@ -20,15 +20,13 @@
 		border-radius: 50%;
 		height: 40%;
 		padding: 2%;
-
-		&:target {
-			.footer__image {
-				fill: $mainColor;
-			}
-		}
 	}
 	
 	&__image {
 		height: 100%;
+
+		&--selected {
+			fill: $mainColor;
+		}
 	}
 }
