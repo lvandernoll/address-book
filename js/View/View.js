@@ -66,13 +66,8 @@ class View {
 	}
 
 	switchDetailPage() {
-		if(this.detailActive) {
-			this.detailPage.style.left = '-150%';
-			this.contactsPage.style.height = '91vh';
-		} else {
-			this.detailPage.style.left = '0';
-			setTimeout(()=>{this.contactsPage.style.height = '0';}, 1000);
-		}
+		if(this.detailActive) this.detailPage.style.left = '-150%';
+		else this.detailPage.style.left = '0';
 		this.detailActive = !this.detailActive;
 	}
 
