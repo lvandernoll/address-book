@@ -6,16 +6,23 @@ class View {
 		this.peopleList = document.querySelector('#peopleList');
 		this.lineTemplate = document.querySelector('#lineTemplate');
 		this.letterList = document.querySelectorAll('.letter-list__letter');
-		this.footerIcons = document.querySelectorAll('.footer__image');
 		this.detailActive = false;
 		this.allFirstLetters = [];
+		this.peopleListTemplates = [];
+		this.peopleList.childNodes.forEach(child => {
+			this.peopleListTemplates.push(child);
+		});
 
-		document.querySelector('#returnButton').addEventListener('click', e => {this.switchDetailPage();});
+		document.querySelector('#returnButton').addEventListener('click', () => {this.switchDetailPage();});
 	}
 
 	showPeopleList(peopleArray) {
 		this.allFirstLetters = [];
 		let previousLetter = '';
+		this.peopleList.innerHTML = '';
+		this.peopleListTemplates.forEach(template => {
+			this.peopleList.appendChild(template);
+		});
 		peopleArray.forEach(person => {
 			let newLetter = true;
 			this.allFirstLetters.forEach(letter => {
@@ -23,7 +30,7 @@ class View {
 			});
 			if(newLetter) this.allFirstLetters.push(person.name.first[0]);
 
-			let newPersonNode = new Person(person.picture.large, `${person.name.first} ${person.name.last}`, person.phone);
+			let newPersonNode = new Person(person.picture.large, person.name.full, person.phone);
 			if(person.name.first[0] !== previousLetter) {
 				newPersonNode.classList.toggle('person-block--no-border');
 				const CLONE = this.lineTemplate.cloneNode(true);
@@ -49,15 +56,17 @@ class View {
 			});
 			if(isActive) {
 				letterNode.setAttribute('href', `#${letterNode.innerHTML}`);
+				letterNode.classList.remove('letter-list__letter--faded');
 			} else {
+				letterNode.removeAttribute('href');
 				letterNode.classList.add('letter-list__letter--faded');
 			}
-		})
+		});
 	}
 
 	fillDetailPage(person) {
 		this.detailPage.querySelector('#detailImage').style.backgroundImage = `url(${person.picture.large})`;;
-		this.detailPage.querySelector('#detailName').innerText = `${person.name.first} ${person.name.last}`;
+		this.detailPage.querySelector('#detailName').innerText = person.name.full;
 		this.detailPage.querySelector('#detailFunction').innerText = 'Designer at Competa';
 		this.detailPage.querySelector('#detailMobilePhone').innerText = person.cell;
 		this.detailPage.querySelector('#detailWorkPhone').innerText = person.phone;
@@ -73,16 +82,5 @@ class View {
 
 	setPageTransition(time) {
 		this.detailPage.style.transition = `left ${time} ease`
-	}
-
-	setFooterIcons() {
-		this.footerIcons.forEach(footerIcon => {
-			footerIcon.addEventListener('click', e => {
-				this.footerIcons.forEach(icon => {
-					icon.classList.remove('footer__image--selected');
-				});
-				e.target.classList.add('footer__image--selected');
-			});
-		});
 	}
 }
