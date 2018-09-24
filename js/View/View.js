@@ -7,6 +7,7 @@ class View {
 		this.lineTemplate = document.querySelector('#lineTemplate');
 		this.letterList = document.querySelectorAll('.letter-list__letter');
 		this.detailActive = false;
+		this.transitionTime;
 		this.allFirstLetters = [];
 		this.peopleListTemplates = [];
 		this.peopleList.childNodes.forEach(child => {
@@ -75,12 +76,21 @@ class View {
 	}
 
 	switchDetailPage() {
-		if(this.detailActive) this.detailPage.style.left = '-150%';
-		else this.detailPage.style.left = '0';
+		if(this.detailActive) {
+			this.detailPage.style.left = '-150%';
+			this.contactsPage.style.height = '84vh';
+		}
+		else {
+			this.detailPage.style.left = '0';
+			setTimeout(() => {
+				this.contactsPage.style.height = '0';
+			}, this.transitionTime);
+		}
 		this.detailActive = !this.detailActive;
 	}
 
 	setPageTransition(time) {
+		this.transitionTime = time.replace(/s/, '') * 1000;
 		this.detailPage.style.transition = `left ${time} ease`
 	}
 }
